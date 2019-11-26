@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/controller/c_pembersihan.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/view/Kolam.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/controller/c_analisis.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/controller/c_tahap.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/view/Analisis.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/controller/c_kolam.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/dao/dao_kolamSQL.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/dao/dao_ikanSQL.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/dao/dao_pembersihanSQL.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/view/Ikan.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/view/Pembersihan.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/model/m_level.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/model/m_kolam.java</file>
+            <file>file:/C:/Users/fendy/Documents/NetBeansProjects/Maper/src/model/m_pembersihan.java</file>
+        </group>
+    </open-files>
+</project-private>
