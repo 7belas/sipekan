@@ -443,7 +443,7 @@ public class Kolam extends javax.swing.JFrame implements Observer {
 
     private void menuDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDashboardActionPerformed
         // TODO add your handling code here:
-        Dashboard dashboard = new Dashboard();
+        Pembenihan dashboard = new Pembenihan();
         dashboard.setVisible(true);
         dispose();
     }//GEN-LAST:event_menuDashboardActionPerformed
@@ -498,14 +498,7 @@ public class Kolam extends javax.swing.JFrame implements Observer {
         // TODO add your handling code here:
         String id = id_kolam.getText();
         String nama = nama_kolam.getText();
-        int volume = Integer.parseInt(volume_kolam.getText());
-        int suhu = Integer.parseInt(suhu_kolam.getText());
-        int ph = Integer.parseInt(ph_kolam.getText());
-        m_ikan ikan = (m_ikan) jenis_ikan.getSelectedItem();
-        m_tahap tahap = (m_tahap) tahap_kolam.getSelectedItem();
-        System.out.println(tahap_kolam.getSelectedItem().getClass().getName());
-        System.out.println(jenis_ikan.getSelectedItem().getClass().getName());
-        m_kolam k = new m_kolam(id,ikan, tahap, nama, volume, suhu, ph);
+        m_kolam k = new m_kolam(id, nama);
         kolam.manipulate(k, CrudState.DELETE);
     }//GEN-LAST:event_hapusActionPerformed
 
@@ -520,12 +513,13 @@ public class Kolam extends javax.swing.JFrame implements Observer {
         int baris = tabel_kolam.rowAtPoint(evt.getPoint());
         id_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 1).toString());
         nama_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 2).toString());
-        volume_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 4).toString());
-        suhu_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 5).toString());
-        ph_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 6).toString());
-        m_level l = new m_level(tabel_kolam.getModel().getValueAt(baris, 7).toString(),tabel_kolam.getModel().getValueAt(baris, 3).toString());
+        volume_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 5).toString());
+        suhu_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 6).toString());
+        ph_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 7).toString());
+        m_level l = new m_level(tabel_kolam.getModel().getValueAt(baris, 3).toString(),tabel_kolam.getModel().getValueAt(baris, 3).toString());
+        m_ikan i = new m_ikan(tabel_kolam.getModel().getValueAt(baris, 4).toString(),tabel_kolam.getModel().getValueAt(baris, 4).toString());
         tahap_kolam.getModel().setSelectedItem(l);
-        jenis_ikan.getModel().setSelectedItem(l);
+        jenis_ikan.getModel().setSelectedItem(i);
     }//GEN-LAST:event_tabel_kolamMouseClicked
 
     /**

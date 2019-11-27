@@ -362,7 +362,7 @@ public class Analisis extends javax.swing.JFrame implements Observer {
 
     private void menuDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDashboardActionPerformed
         // TODO add your handling code here:
-        Dashboard dashboard = new Dashboard();
+        Pembenihan dashboard = new Pembenihan();
         dashboard.setVisible(true);
         dispose();
     }//GEN-LAST:event_menuDashboardActionPerformed

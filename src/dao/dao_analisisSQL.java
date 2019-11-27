@@ -49,10 +49,7 @@ public class dao_analisisSQL implements dao_analisis {
         int id_level = Integer.parseInt(user_session.getLevel().getId());
         String id_user = user_session.getId();
         System.out.println(id_level);
-        String sql = "SELECT * FROM hasil_analisis a JOIN user u on a.id_user = u.id_user JOIN kolam k on a.id_kolam = k.id_kolam JOIN ikan i on a.id_ikan = i.id_ikan WHERE a.id_user=?";
-        if(id_level==1){
-           sql = "SELECT * FROM hasil_analisis a JOIN user u on a.id_user = u.id_user JOIN kolam k on a.id_kolam = k.id_kolam JOIN ikan i on a.id_ikan = i.id_ikan"; 
-        }
+        String sql = "SELECT * FROM hasil_analisis a JOIN user u on a.id_user = u.id_user JOIN kolam k on a.id_kolam = k.id_kolam JOIN ikan i on a.id_ikan = i.id_ikan";
         
         try {
             if (koneksi.getConnection() == null) {
@@ -69,8 +66,8 @@ public class dao_analisisSQL implements dao_analisis {
                             rs.getString(2),
                             rs.getString(3),
                             new m_user(rs.getString(7), rs.getString(8), rs.getString(9)),
-                            new m_kolam(rs.getString(12), rs.getString(14)),
-                            new m_ikan(rs.getString(19), rs.getString(20))
+                            new m_kolam(rs.getString(12), rs.getString(15)),
+                            new m_ikan(rs.getString(19), rs.getString(21))
                     );
                     analisiss.add(k);
                 }

@@ -129,11 +129,15 @@ public class masuk extends javax.swing.JFrame {
         
         if(status == "berhasil"){
             if(Integer.parseInt(us.getLevel().getId())==1){
-                Dashboard dash = new Dashboard();
+                Pembenihan dash = new Pembenihan();
                 dash.setVisible(true);
                 this.dispose();
-            }else{
-                DashboardBos dash = new DashboardBos();
+            }else if(Integer.parseInt(us.getLevel().getId())==2){
+                Bos dash = new Bos();
+                dash.setVisible(true);
+                this.dispose();
+            } else if(Integer.parseInt(us.getLevel().getId())==3){
+                Pembersihan dash = new Pembersihan();
                 dash.setVisible(true);
                 this.dispose();
             }

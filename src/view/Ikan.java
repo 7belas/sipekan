@@ -395,7 +395,7 @@ public class Ikan extends javax.swing.JFrame implements Observer {
 
     private void menuDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDashboardActionPerformed
         // TODO add your handling code here:
-        Dashboard dashboard = new Dashboard();
+        Pembenihan dashboard = new Pembenihan();
         dashboard.setVisible(true);
         dispose();
     }//GEN-LAST:event_menuDashboardActionPerformed
@@ -437,11 +437,9 @@ public class Ikan extends javax.swing.JFrame implements Observer {
         // TODO add your handling code here:
         String id = id_ikan.getText();
         String nama = nama_ikan.getText();
-        int suhu = Integer.parseInt(suhu_ikan.getText());
-        int ph = Integer.parseInt(ph_ikan.getText());
-        m_tahap tahap = (m_tahap) tahap_ikan.getSelectedItem();
-        System.out.println(tahap_ikan.getSelectedItem().getClass().getName());
-        m_ikan k = new m_ikan(id, tahap, nama, suhu, ph);
+        
+        m_ikan k = new m_ikan(id, nama);
+        
         ikan.manipulate(k, CrudState.DELETE);
 
     }//GEN-LAST:event_hapusActionPerformed

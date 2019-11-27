@@ -54,19 +54,22 @@ public class c_analisis extends Observable {
         
             
         if(k.getPh() > i.getPh()+2 ){
-            hasil += "pH kolam lebih besar dari pH role ikan,tambahkan larutan basa ";
+            hasil = "pH kolam lebih besar dari pH role ikan,tambahkan larutan basa ";
         } 
-        if(k.getPh() < i.getPh()+2 ){
-            hasil += "pH kolam lebih kecil dari pH role ikan,tambahkan larutan asam";
+        else if(k.getPh() < i.getPh()+2 ){
+            hasil = "pH kolam lebih kecil dari pH role ikan,tambahkan larutan asam";
+        
         }
         if(k.getSuhu() > i.getSuhu()+5){
-            hasil += "Suhu kolam lebih besar dari suhu role ikan,atur suhu hingga pas";
+            hasil = "Suhu kolam lebih besar dari suhu role ikan,atur suhu hingga pas";
+        
         }
-        if(k.getSuhu() < i.getSuhu()+5){
-            hasil += "Suhu kolam lebih kecil dari suhu role Ikan,atur suhu hingga pas";
+        else if(k.getSuhu() < i.getSuhu()+5){
+            hasil = "Suhu kolam lebih kecil dari suhu role Ikan,atur suhu hingga pas";
+        
         }
-         else{
-            hasil += "Kolam ikan dalam kondisi baik";
+         if(k.getPh()==i.getPh()+2 && k.getSuhu()==i.getSuhu()+5){
+            hasil = "Kolam ikan dalam kondisi baik";
         }
         return hasil;
     
