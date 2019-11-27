@@ -133,7 +133,7 @@ public class masuk extends javax.swing.JFrame {
                 dash.setVisible(true);
                 this.dispose();
             }else{
-                DashboardUser dash = new DashboardUser();
+                DashboardBos dash = new DashboardBos();
                 dash.setVisible(true);
                 this.dispose();
             }

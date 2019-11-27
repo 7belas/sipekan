@@ -25,18 +25,16 @@ import model.m_user;
 import model.user_session;
 
 
-public class AnalisisUser extends javax.swing.JFrame implements Observer{
+public class AnalisisBos extends javax.swing.JFrame implements Observer{
 
    c_analisis analyzer = new c_analisis();
    c_ikan ikan = new c_ikan();
    c_kolam kolam = new c_kolam();
    c_tahap tahap = new c_tahap();
-    public AnalisisUser() {
+    public AnalisisBos() {
         initComponents();
         analyzer.addObserver(this);
         setTabelAnalisis(analyzer.getAllAnalisis());
-        setIkan(ikan.getAllIkan());
-        setKolam(kolam.getAllKolam());
     }
 
     /**
@@ -84,20 +82,7 @@ public class AnalisisUser extends javax.swing.JFrame implements Observer{
         }
     }
     
-    public void setIkan(List<m_ikan> listIkan){
-        if(listIkan == null){
-            JOptionPane.showMessageDialog(this, "Data Ikan gagal diambil dari database", "DATABASE FAILED", JOptionPane.ERROR_MESSAGE);
-        }else{
-            jenis_ikan.setModel(new DefaultComboBoxModel(listIkan.toArray()));
-        }
-    }
-    public void setKolam(List<m_kolam> listKolam){
-        if(listKolam == null){
-            JOptionPane.showMessageDialog(this, "Data Kolam gagal diambil dari database", "DATABASE FAILED", JOptionPane.ERROR_MESSAGE);
-        }else{
-            pilih_kolam.setModel(new DefaultComboBoxModel(listKolam.toArray()));
-        }
-    }
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -107,14 +92,12 @@ public class AnalisisUser extends javax.swing.JFrame implements Observer{
         keluar = new keeptoo.KButton();
         menuDashboard = new keeptoo.KButton();
         jLabel1 = new javax.swing.JLabel();
-        analisis = new keeptoo.KButton();
+        menuiKolam = new keeptoo.KButton();
+        menujenisIkan = new keeptoo.KButton();
+        menuTahap = new keeptoo.KButton();
+        menuAnalisis = new keeptoo.KButton();
+        menuPengguna = new keeptoo.KButton();
         jPanel2 = new javax.swing.JPanel();
-        kGradientPanel3 = new keeptoo.KGradientPanel();
-        pilih_kolam = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jenis_ikan = new javax.swing.JComboBox<>();
-        btnAnalisis = new keeptoo.KButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel_analisis = new javax.swing.JTable();
@@ -162,56 +145,103 @@ public class AnalisisUser extends javax.swing.JFrame implements Observer{
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/SIMAPAN@2x.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 50));
 
-        analisis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/icons8_overtime_16px.png"))); // NOI18N
-        analisis.setText("Analisis Ikan");
-        analisis.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        analisis.setIconTextGap(15);
-        analisis.setkBackGroundColor(new java.awt.Color(0, 102, 204));
-        analisis.setkEndColor(new java.awt.Color(255, 51, 255));
-        analisis.setkHoverColor(new java.awt.Color(255, 0, 102));
-        analisis.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        analisis.setkStartColor(new java.awt.Color(255, 51, 0));
-        analisis.addActionListener(new java.awt.event.ActionListener() {
+        menuiKolam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/icons8_aquarius_16px_1.png"))); // NOI18N
+        menuiKolam.setText("Variasi Kolam");
+        menuiKolam.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        menuiKolam.setIconTextGap(15);
+        menuiKolam.setkAllowGradient(false);
+        menuiKolam.setkBackGroundColor(new java.awt.Color(0, 102, 204));
+        menuiKolam.setkBorderRadius(15);
+        menuiKolam.setkEndColor(new java.awt.Color(0, 204, 204));
+        menuiKolam.setkHoverColor(new java.awt.Color(255, 0, 102));
+        menuiKolam.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        menuiKolam.setkHoverStartColor(new java.awt.Color(153, 51, 255));
+        menuiKolam.setkIndicatorThickness(1);
+        menuiKolam.setkStartColor(new java.awt.Color(204, 255, 0));
+        menuiKolam.setMargin(new java.awt.Insets(2, 16, 2, 14));
+        menuiKolam.setOpaque(false);
+        menuiKolam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                analisisActionPerformed(evt);
+                menuiKolamActionPerformed(evt);
             }
         });
-        jPanel1.add(analisis, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 160, -1));
+        jPanel1.add(menuiKolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 160, -1));
+
+        menujenisIkan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/icons8_fish_16px_1.png"))); // NOI18N
+        menujenisIkan.setText("Jenis Ikan");
+        menujenisIkan.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        menujenisIkan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        menujenisIkan.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        menujenisIkan.setIconTextGap(15);
+        menujenisIkan.setkAllowGradient(false);
+        menujenisIkan.setkBackGroundColor(new java.awt.Color(0, 102, 204));
+        menujenisIkan.setkEndColor(new java.awt.Color(0, 204, 204));
+        menujenisIkan.setkHoverColor(new java.awt.Color(255, 0, 102));
+        menujenisIkan.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        menujenisIkan.setkStartColor(new java.awt.Color(204, 255, 0));
+        menujenisIkan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menujenisIkanActionPerformed(evt);
+            }
+        });
+        jPanel1.add(menujenisIkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 160, -1));
+
+        menuTahap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/icons8_honeycombs_filled_16px.png"))); // NOI18N
+        menuTahap.setText("Tahap Ikan");
+        menuTahap.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        menuTahap.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        menuTahap.setIconTextGap(15);
+        menuTahap.setkAllowGradient(false);
+        menuTahap.setkBackGroundColor(new java.awt.Color(0, 102, 204));
+        menuTahap.setkEndColor(new java.awt.Color(0, 204, 204));
+        menuTahap.setkHoverColor(new java.awt.Color(255, 0, 102));
+        menuTahap.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        menuTahap.setkStartColor(new java.awt.Color(204, 255, 0));
+        menuTahap.setMargin(new java.awt.Insets(2, 16, 2, 14));
+        menuTahap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTahapActionPerformed(evt);
+            }
+        });
+        jPanel1.add(menuTahap, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 160, -1));
+
+        menuAnalisis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/icons8_overtime_16px.png"))); // NOI18N
+        menuAnalisis.setText("Analisis Ikan");
+        menuAnalisis.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        menuAnalisis.setIconTextGap(15);
+        menuAnalisis.setkBackGroundColor(new java.awt.Color(0, 102, 204));
+        menuAnalisis.setkEndColor(new java.awt.Color(255, 51, 255));
+        menuAnalisis.setkHoverColor(new java.awt.Color(255, 0, 102));
+        menuAnalisis.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        menuAnalisis.setkStartColor(new java.awt.Color(255, 51, 0));
+        menuAnalisis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAnalisisActionPerformed(evt);
+            }
+        });
+        jPanel1.add(menuAnalisis, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 160, -1));
+
+        menuPengguna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/icons8_user_filled_16px.png"))); // NOI18N
+        menuPengguna.setText("Pengguna");
+        menuPengguna.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        menuPengguna.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        menuPengguna.setIconTextGap(12);
+        menuPengguna.setkAllowGradient(false);
+        menuPengguna.setkBackGroundColor(new java.awt.Color(0, 102, 204));
+        menuPengguna.setkEndColor(new java.awt.Color(0, 204, 204));
+        menuPengguna.setkHoverColor(new java.awt.Color(255, 0, 102));
+        menuPengguna.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        menuPengguna.setkStartColor(new java.awt.Color(204, 255, 0));
+        menuPengguna.setMargin(new java.awt.Insets(2, 16, 2, 14));
+        menuPengguna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPenggunaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(menuPengguna, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 160, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        kGradientPanel3.setkBorderRadius(15);
-        kGradientPanel3.setkEndColor(new java.awt.Color(255, 153, 0));
-        kGradientPanel3.setkGradientFocus(400);
-        kGradientPanel3.setkStartColor(new java.awt.Color(255, 102, 204));
-        kGradientPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        kGradientPanel3.add(pilih_kolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 160, -1));
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Jenis Ikan");
-        kGradientPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Pilih Kolam");
-        kGradientPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jenis_ikan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Ikan" }));
-        kGradientPanel3.add(jenis_ikan, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 160, -1));
-
-        btnAnalisis.setText("Analisis");
-        btnAnalisis.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAnalisis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAnalisisActionPerformed(evt);
-            }
-        });
-        kGradientPanel3.add(btnAnalisis, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 110, -1));
-
-        jPanel2.add(kGradientPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 660, 180));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Analisis Kolam");
@@ -227,7 +257,7 @@ public class AnalisisUser extends javax.swing.JFrame implements Observer{
         ));
         jScrollPane1.setViewportView(tabel_analisis);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 660, 280));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 660, 390));
 
         jSeparator2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
@@ -273,26 +303,43 @@ public class AnalisisUser extends javax.swing.JFrame implements Observer{
 
     private void menuDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDashboardActionPerformed
         // TODO add your handling code here:
-        DashboardUser dashboard = new DashboardUser();
+        DashboardBos dashboard = new DashboardBos();
         dashboard.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuDashboardActionPerformed
 
-    private void btnAnalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalisisActionPerformed
+    private void menuiKolamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuiKolamActionPerformed
         // TODO add your handling code here:
-        m_ikan ikn = (m_ikan) jenis_ikan.getSelectedItem();
-        m_kolam klm = (m_kolam) pilih_kolam.getSelectedItem();
-        String hasil = analyzer.hasil_analisis(ikn, klm);
-        m_user usr = new m_user(user_session.getId(),user_session.getNama(),user_session.getUsername(),user_session.getLevel(),user_session.getPassword());
-        m_analisis an = new m_analisis(null,hasil,null,usr,klm,ikn);
-        analyzer.manipulate(an, CrudState.INSERT);
-        
-    }//GEN-LAST:event_btnAnalisisActionPerformed
+        Kolam kolam = new Kolam();
+        kolam.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_menuiKolamActionPerformed
 
-    private void analisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analisisActionPerformed
-        
-        
-    }//GEN-LAST:event_analisisActionPerformed
+    private void menujenisIkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menujenisIkanActionPerformed
+        // TODO add your handling code here:
+        Ikan ikan = new Ikan();
+        ikan.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menujenisIkanActionPerformed
+
+    private void menuTahapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTahapActionPerformed
+        // TODO add your handling code here:
+        Tahap tahap = new Tahap();
+        tahap.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuTahapActionPerformed
+
+    private void menuAnalisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAnalisisActionPerformed
+        // TODO add your handling code here:
+        menuAnalisis.setSelected(false);
+    }//GEN-LAST:event_menuAnalisisActionPerformed
+
+    private void menuPenggunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPenggunaActionPerformed
+        // TODO add your handling code here:
+        Pengguna p = new Pengguna();
+        p.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menuPenggunaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,14 +358,18 @@ public class AnalisisUser extends javax.swing.JFrame implements Observer{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AnalisisUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnalisisBos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AnalisisUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnalisisBos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AnalisisUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnalisisBos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AnalisisUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnalisisBos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -327,27 +378,25 @@ public class AnalisisUser extends javax.swing.JFrame implements Observer{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AnalisisUser().setVisible(true);
+                new AnalisisBos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private keeptoo.KButton analisis;
-    private keeptoo.KButton btnAnalisis;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JComboBox<String> jenis_ikan;
-    private keeptoo.KGradientPanel kGradientPanel3;
     private keeptoo.KButton keluar;
+    private keeptoo.KButton menuAnalisis;
     private keeptoo.KButton menuDashboard;
-    private javax.swing.JComboBox<String> pilih_kolam;
+    private keeptoo.KButton menuPengguna;
+    private keeptoo.KButton menuTahap;
+    private keeptoo.KButton menuiKolam;
+    private keeptoo.KButton menujenisIkan;
     private javax.swing.JTable tabel_analisis;
     // End of variables declaration//GEN-END:variables
 

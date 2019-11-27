@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2019 at 12:25 PM
+-- Generation Time: Nov 27, 2019 at 10:54 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `hasil_analisis` (
   `id` int(11) NOT NULL,
-  `hasil_analis` varchar(50) NOT NULL,
+  `hasil_analis` varchar(191) NOT NULL,
   `tgl_analis` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   `id_user` int(11) NOT NULL,
   `id_kolam` int(11) NOT NULL,
@@ -50,7 +50,8 @@ INSERT INTO `hasil_analisis` (`id`, `hasil_analis`, `tgl_analis`, `id_user`, `id
 (6, 'nullPh ikan lebih besar dari pH kolam', '2019-11-11 08:02:25.919512', 1, 1, 1),
 (7, 'Kolam ikan dalam kondisi baik', '2019-11-26 10:38:56.317036', 1, 1, 1),
 (8, 'Kolam ikan dalam kondisi baik', '2019-11-26 10:43:20.329923', 1, 1, 1),
-(9, 'Ph ikan lebih besar dari pH kolam', '2019-11-26 10:46:42.390353', 1, 2, 1);
+(9, 'Ph ikan lebih besar dari pH kolam', '2019-11-26 10:46:42.390353', 1, 2, 1),
+(10, 'pH kolam lebih kecil dari pH role ikan,tambahkan larutan asamSuhu kolam lebih kecil dari suhu role Ikan,atur suhu hingga pas', '2019-11-27 09:39:45.966952', 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -82,6 +83,7 @@ INSERT INTO `ikan` (`id_ikan`, `id_tahap_ikan`, `nama_ikan`, `ph_ikan`, `suhu_ik
 
 CREATE TABLE `kolam` (
   `id_kolam` int(11) NOT NULL,
+  `id_ikan` int(11) NOT NULL,
   `id_tahap_kolam` int(11) NOT NULL,
   `nama_kolam` varchar(50) NOT NULL,
   `volume_kolam` int(50) NOT NULL,
@@ -93,9 +95,10 @@ CREATE TABLE `kolam` (
 -- Dumping data for table `kolam`
 --
 
-INSERT INTO `kolam` (`id_kolam`, `id_tahap_kolam`, `nama_kolam`, `volume_kolam`, `suhu_kolam`, `ph_kolam`) VALUES
-(1, 1, 'Kolam 1', 210, 25, 6),
-(2, 1, 'Kolam 2', 210, 25, 9);
+INSERT INTO `kolam` (`id_kolam`, `id_ikan`, `id_tahap_kolam`, `nama_kolam`, `volume_kolam`, `suhu_kolam`, `ph_kolam`) VALUES
+(1, 0, 1, 'Kolam 1', 210, 25, 6),
+(2, 0, 1, 'Kolam 2', 210, 25, 9),
+(3, 1, 2, 'Kolam 3', 210, 25, 6);
 
 -- --------------------------------------------------------
 
@@ -113,8 +116,8 @@ CREATE TABLE `level_user` (
 --
 
 INSERT INTO `level_user` (`id_level`, `nama_level`) VALUES
-(1, 'admin'),
-(2, 'user');
+(1, 'Staff Pembenihan'),
+(2, 'Bos');
 
 -- --------------------------------------------------------
 
@@ -127,6 +130,13 @@ CREATE TABLE `pembersihan` (
   `id_kolam` int(11) NOT NULL,
   `deskripsi` varchar(191) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pembersihan`
+--
+
+INSERT INTO `pembersihan` (`id`, `id_kolam`, `deskripsi`) VALUES
+(1, 1, 'tes');
 
 -- --------------------------------------------------------
 
@@ -168,7 +178,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_lengkap`, `username`, `password`, `id_level`) VALUES
-(1, 'Fendy Marzuki', 'admin', 'admin', 1);
+(1, 'Fendy Marzuki', 'admin', 'admin', 1),
+(2, 'Bagus Alfarizi', 'bos', 'bos123', 2);
 
 --
 -- Indexes for dumped tables
@@ -195,7 +206,8 @@ ALTER TABLE `ikan`
 --
 ALTER TABLE `kolam`
   ADD PRIMARY KEY (`id_kolam`),
-  ADD KEY `id_tahap` (`id_tahap_kolam`);
+  ADD KEY `id_tahap` (`id_tahap_kolam`),
+  ADD KEY `id_ikan` (`id_ikan`);
 
 --
 -- Indexes for table `level_user`
@@ -231,7 +243,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `hasil_analisis`
 --
 ALTER TABLE `hasil_analisis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ikan`
@@ -243,7 +255,7 @@ ALTER TABLE `ikan`
 -- AUTO_INCREMENT for table `kolam`
 --
 ALTER TABLE `kolam`
-  MODIFY `id_kolam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kolam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `level_user`
@@ -255,7 +267,7 @@ ALTER TABLE `level_user`
 -- AUTO_INCREMENT for table `pembersihan`
 --
 ALTER TABLE `pembersihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tahap`
@@ -267,7 +279,7 @@ ALTER TABLE `tahap`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

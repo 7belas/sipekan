@@ -46,15 +46,11 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" pref="510" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="444" max="32767" attributes="0"/>
           </Group>
+          <Component id="jPanel2" alignment="0" pref="532" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Component id="jPanel1" alignment="0" pref="532" max="32767" attributes="0"/>
           </Group>
@@ -143,7 +139,127 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="keeptoo.KButton" name="analisis">
+        <Component class="keeptoo.KButton" name="menuKolam">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/gambar/icons8_aquarius_16px_1.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Variasi Kolam"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="12" style="1"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="15"/>
+            <Property name="kAllowGradient" type="boolean" value="false"/>
+            <Property name="kBackGroundColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="kBorderRadius" type="int" value="15"/>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="0" type="rgb"/>
+            </Property>
+            <Property name="kHoverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="kHoverForeGround" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="kHoverStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="33" red="99" type="rgb"/>
+            </Property>
+            <Property name="kIndicatorThickness" type="int" value="1"/>
+            <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="cc" type="rgb"/>
+            </Property>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[2, 16, 2, 14]"/>
+            </Property>
+            <Property name="opaque" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuKolamActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="20" y="150" width="160" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="keeptoo.KButton" name="menuIkan">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/gambar/icons8_fish_16px_1.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Jenis Ikan"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="horizontalTextPosition" type="int" value="2"/>
+            <Property name="iconTextGap" type="int" value="15"/>
+            <Property name="kAllowGradient" type="boolean" value="false"/>
+            <Property name="kBackGroundColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="0" type="rgb"/>
+            </Property>
+            <Property name="kHoverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="kHoverForeGround" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuIkanActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="20" y="190" width="160" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="keeptoo.KButton" name="menuTahap">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/gambar/icons8_honeycombs_filled_16px.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Tahap Ikan"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="iconTextGap" type="int" value="15"/>
+            <Property name="kAllowGradient" type="boolean" value="false"/>
+            <Property name="kBackGroundColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="0" type="rgb"/>
+            </Property>
+            <Property name="kHoverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="kHoverForeGround" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTahapActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="20" y="240" width="160" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="keeptoo.KButton" name="menuAnalisis">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/gambar/icons8_overtime_16px.png"/>
@@ -171,11 +287,51 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="analisisActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAnalisisActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="20" y="150" width="160" height="-1"/>
+              <AbsoluteConstraints x="20" y="290" width="160" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="keeptoo.KButton" name="menuPengguna">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/gambar/icons8_user_filled_16px.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Pengguna"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="12" style="1"/>
+            </Property>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="iconTextGap" type="int" value="12"/>
+            <Property name="kAllowGradient" type="boolean" value="false"/>
+            <Property name="kBackGroundColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="kEndColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="0" type="rgb"/>
+            </Property>
+            <Property name="kHoverColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="kHoverForeGround" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="kStartColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="cc" type="rgb"/>
+            </Property>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[2, 16, 2, 14]"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuPenggunaActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="20" y="340" width="160" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

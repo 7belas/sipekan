@@ -11,7 +11,6 @@ import javax.swing.table.DefaultTableModel;
 import model.m_kolam;
 import controller.c_kolam;
 import controller.c_tahap;
-import controller.c_ikan;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.DefaultComboBoxModel;
@@ -19,22 +18,19 @@ import javax.swing.JFrame;
 import model.CrudState;
 import model.m_level;
 import model.m_tahap;
-import model.m_ikan;
 
 
-public class Kolam extends javax.swing.JFrame implements Observer {
+public class KolamBos extends javax.swing.JFrame implements Observer {
 
     c_kolam kolam = new c_kolam();
     c_tahap tahap = new c_tahap();
-    c_ikan ikan = new c_ikan();
 
-    public Kolam() {
+    public KolamBos() {
         initComponents();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         kolam.addObserver(this);
         setTabelKolam(kolam.getAllKolam());
-        setTahap(tahap.getAllTahap());
-        setIkan(ikan.getAllIkan());
+
     }
 
     /**
@@ -53,7 +49,6 @@ public class Kolam extends javax.swing.JFrame implements Observer {
                         "Id",
                         "Nama Kolam",
                         "Tahap Kolam",
-                        "Nama Ikan",
                         "Volume Kolam",
                         "Suhu Kolam",
                         "Ph Kolam"
@@ -61,17 +56,15 @@ public class Kolam extends javax.swing.JFrame implements Observer {
             );
             int no = 1;
             for (m_kolam k : listKolam) {
-                Object[] o = new Object[10];
+                Object[] o = new Object[9];
                 o[0] = no;
                 o[1] = k.getId();
                 o[2] = k.getNamaKolam();
-                o[3] = k.getIkan().getNamaIkan();
-                o[4] = k.getTahap().getNamaTahap();
-                o[5] = k.getVolume();
-                o[6] = k.getSuhu();
-                o[7] = k.getPh();
-                o[8] = k.getTahap().getId();
-                o[9] = k.getIkan().getId();
+                o[3] = k.getTahap().getNamaTahap();
+                o[4] = k.getVolume();
+                o[5] = k.getSuhu();
+                o[6] = k.getPh();
+                o[7] = k.getTahap().getId();
                 tableModel.addRow(o);
                 no++;
             }
@@ -86,20 +79,7 @@ public class Kolam extends javax.swing.JFrame implements Observer {
         }
     }
 
-    public void setTahap(List<m_tahap> listTahap) {
-        if (listTahap == null) {
-            JOptionPane.showMessageDialog(this, "Data Level gagal diambil dari database", "DATABASE FAILED", JOptionPane.ERROR_MESSAGE);
-        } else {
-            tahap_kolam.setModel(new DefaultComboBoxModel(listTahap.toArray()));
-        }
-    }
-        public void setIkan(List<m_ikan> listIkan) {
-        if (listIkan == null) {
-            JOptionPane.showMessageDialog(this, "Data Level gagal diambil dari database", "DATABASE FAILED", JOptionPane.ERROR_MESSAGE);
-        } else {
-            jenis_ikan.setModel(new DefaultComboBoxModel(listIkan.toArray()));
-        }
-    }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -116,25 +96,8 @@ public class Kolam extends javax.swing.JFrame implements Observer {
         menuPengguna = new keeptoo.KButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        tambah_kolam = new keeptoo.KButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabel_kolam = new javax.swing.JTable();
-        ubah_kolam = new keeptoo.KButton();
-        hapus = new keeptoo.KButton();
-        id_kolam = new javax.swing.JTextField();
-        nama_kolam = new javax.swing.JTextField();
-        volume_kolam = new javax.swing.JTextField();
-        suhu_kolam = new javax.swing.JTextField();
-        ph_kolam = new javax.swing.JTextField();
-        tahap_kolam = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jenis_ikan = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard Pengguna");
@@ -274,25 +237,6 @@ public class Kolam extends javax.swing.JFrame implements Observer {
         jLabel3.setText("Kolam Ikan");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
-        tambah_kolam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/icons8_add_16px.png"))); // NOI18N
-        tambah_kolam.setText("    Tambah Kolam");
-        tambah_kolam.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        tambah_kolam.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        tambah_kolam.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        tambah_kolam.setIconTextGap(10);
-        tambah_kolam.setkEndColor(new java.awt.Color(0, 255, 102));
-        tambah_kolam.setkHoverEndColor(new java.awt.Color(0, 204, 51));
-        tambah_kolam.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        tambah_kolam.setkHoverStartColor(new java.awt.Color(0, 204, 102));
-        tambah_kolam.setkStartColor(new java.awt.Color(0, 204, 102));
-        tambah_kolam.setMargin(new java.awt.Insets(2, 20, 2, 10));
-        tambah_kolam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tambah_kolamActionPerformed(evt);
-            }
-        });
-        jPanel2.add(tambah_kolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 150, -1));
-
         tabel_kolam.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -309,81 +253,6 @@ public class Kolam extends javax.swing.JFrame implements Observer {
         jScrollPane2.setViewportView(tabel_kolam);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 690, 290));
-
-        ubah_kolam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/icons8_pencil_16px.png"))); // NOI18N
-        ubah_kolam.setText("    Ubah Kolam");
-        ubah_kolam.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ubah_kolam.setIconTextGap(10);
-        ubah_kolam.setkBackGroundColor(new java.awt.Color(51, 153, 255));
-        ubah_kolam.setkEndColor(new java.awt.Color(51, 153, 255));
-        ubah_kolam.setkHoverEndColor(new java.awt.Color(153, 204, 255));
-        ubah_kolam.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        ubah_kolam.setkHoverStartColor(new java.awt.Color(0, 153, 204));
-        ubah_kolam.setkSelectedColor(new java.awt.Color(0, 204, 255));
-        ubah_kolam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ubah_kolamActionPerformed(evt);
-            }
-        });
-        jPanel2.add(ubah_kolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 140, -1));
-
-        hapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/icons8_delete_16px.png"))); // NOI18N
-        hapus.setText("     Hapus");
-        hapus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        hapus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        hapus.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        hapus.setIconTextGap(10);
-        hapus.setkEndColor(new java.awt.Color(255, 51, 153));
-        hapus.setkHoverEndColor(new java.awt.Color(255, 0, 0));
-        hapus.setkHoverForeGround(new java.awt.Color(255, 255, 255));
-        hapus.setkHoverStartColor(new java.awt.Color(255, 0, 51));
-        hapus.setkStartColor(new java.awt.Color(255, 0, 51));
-        hapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hapusActionPerformed(evt);
-            }
-        });
-        jPanel2.add(hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 90, -1));
-
-        id_kolam.setEnabled(false);
-        jPanel2.add(id_kolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 60, 30));
-        jPanel2.add(nama_kolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 180, 30));
-
-        volume_kolam.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                volume_kolamActionPerformed(evt);
-            }
-        });
-        jPanel2.add(volume_kolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 40, 30));
-        jPanel2.add(suhu_kolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 40, 30));
-        jPanel2.add(ph_kolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 40, 30));
-
-        tahap_kolam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(tahap_kolam, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 120, 30));
-
-        jLabel2.setText("Tahap Kolam");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, -1, -1));
-
-        jLabel4.setText("Id Kolam");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-
-        jLabel5.setText("Nama Kolam");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
-
-        jLabel6.setText("Volume");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
-
-        jLabel7.setText("Suhu");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
-
-        jLabel8.setText("Ph");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
-
-        jenis_ikan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jenis_ikan, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 120, 30));
-
-        jLabel9.setText("Nama Ikan");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -412,11 +281,7 @@ public class Kolam extends javax.swing.JFrame implements Observer {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     private void resetForm(){
-        id_kolam.setText("");
-        nama_kolam.setText("");
-        volume_kolam.setText("");
-        suhu_kolam.setText("");
-        ph_kolam.setText("");
+
     }
     private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
         // TODO add your handling code here:
@@ -424,22 +289,6 @@ public class Kolam extends javax.swing.JFrame implements Observer {
         masuk.setVisible(true);
         dispose();
     }//GEN-LAST:event_keluarActionPerformed
-
-    private void tambah_kolamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambah_kolamActionPerformed
-        // TODO add your handling code here:
-
-        String id = null;
-        String nama = nama_kolam.getText();
-        int volume = Integer.parseInt(volume_kolam.getText());
-        int suhu = Integer.parseInt(suhu_kolam.getText());
-        int ph = Integer.parseInt(ph_kolam.getText());
-        m_ikan ikan = (m_ikan) jenis_ikan.getSelectedItem();
-        m_tahap tahap = (m_tahap) tahap_kolam.getSelectedItem();
-        System.out.println(tahap_kolam.getSelectedItem().getClass().getName());
-        System.out.println(jenis_ikan.getSelectedItem().getClass().getName());
-        m_kolam k = new m_kolam(id, ikan, tahap, nama, volume, suhu, ph);
-        kolam.manipulate(k, CrudState.INSERT);
-    }//GEN-LAST:event_tambah_kolamActionPerformed
 
     private void menuDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDashboardActionPerformed
         // TODO add your handling code here:
@@ -479,53 +328,9 @@ public class Kolam extends javax.swing.JFrame implements Observer {
 
     }//GEN-LAST:event_menuTahapActionPerformed
 
-    private void ubah_kolamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubah_kolamActionPerformed
-        // TODO add your handling code here:
-        String id = id_kolam.getText();
-        String nama = nama_kolam.getText();
-        int volume = Integer.parseInt(volume_kolam.getText());
-        int suhu = Integer.parseInt(suhu_kolam.getText());
-        int ph = Integer.parseInt(ph_kolam.getText());
-        m_ikan ikan = (m_ikan) jenis_ikan.getSelectedItem();
-        m_tahap tahap = (m_tahap) tahap_kolam.getSelectedItem();
-        System.out.println(tahap_kolam.getSelectedItem().getClass().getName());
-        System.out.println(jenis_ikan.getSelectedItem().getClass().getName());
-        m_kolam k = new m_kolam(id, ikan,tahap, nama, volume, suhu, ph);
-        kolam.manipulate(k, CrudState.UPDATE);
-    }//GEN-LAST:event_ubah_kolamActionPerformed
-
-    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
-        // TODO add your handling code here:
-        String id = id_kolam.getText();
-        String nama = nama_kolam.getText();
-        int volume = Integer.parseInt(volume_kolam.getText());
-        int suhu = Integer.parseInt(suhu_kolam.getText());
-        int ph = Integer.parseInt(ph_kolam.getText());
-        m_ikan ikan = (m_ikan) jenis_ikan.getSelectedItem();
-        m_tahap tahap = (m_tahap) tahap_kolam.getSelectedItem();
-        System.out.println(tahap_kolam.getSelectedItem().getClass().getName());
-        System.out.println(jenis_ikan.getSelectedItem().getClass().getName());
-        m_kolam k = new m_kolam(id,ikan, tahap, nama, volume, suhu, ph);
-        kolam.manipulate(k, CrudState.DELETE);
-    }//GEN-LAST:event_hapusActionPerformed
-
-    private void volume_kolamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volume_kolamActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_volume_kolamActionPerformed
-
     private void tabel_kolamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabel_kolamMouseClicked
         // TODO add your handling code here:
-        tambah_kolam.setEnabled(false);
-        tambah_kolam.setSelected(true);
-        int baris = tabel_kolam.rowAtPoint(evt.getPoint());
-        id_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 1).toString());
-        nama_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 2).toString());
-        volume_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 4).toString());
-        suhu_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 5).toString());
-        ph_kolam.setText(tabel_kolam.getModel().getValueAt(baris, 6).toString());
-        m_level l = new m_level(tabel_kolam.getModel().getValueAt(baris, 7).toString(),tabel_kolam.getModel().getValueAt(baris, 3).toString());
-        tahap_kolam.getModel().setSelectedItem(l);
-        jenis_ikan.getModel().setSelectedItem(l);
+
     }//GEN-LAST:event_tabel_kolamMouseClicked
 
     /**
@@ -545,41 +350,33 @@ public class Kolam extends javax.swing.JFrame implements Observer {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Kolam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KolamBos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Kolam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KolamBos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Kolam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KolamBos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Kolam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(KolamBos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Kolam().setVisible(true);
+                new KolamBos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private keeptoo.KButton hapus;
-    private javax.swing.JTextField id_kolam;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JComboBox<String> jenis_ikan;
     private keeptoo.KButton keluar;
     private keeptoo.KButton menuAnalisis;
     private keeptoo.KButton menuDashboard;
@@ -587,14 +384,7 @@ public class Kolam extends javax.swing.JFrame implements Observer {
     private keeptoo.KButton menuKolam;
     private keeptoo.KButton menuPengguna;
     private keeptoo.KButton menuTahap;
-    private javax.swing.JTextField nama_kolam;
-    private javax.swing.JTextField ph_kolam;
-    private javax.swing.JTextField suhu_kolam;
     private javax.swing.JTable tabel_kolam;
-    private javax.swing.JComboBox<String> tahap_kolam;
-    private keeptoo.KButton tambah_kolam;
-    private keeptoo.KButton ubah_kolam;
-    private javax.swing.JTextField volume_kolam;
     // End of variables declaration//GEN-END:variables
 
     @Override

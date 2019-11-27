@@ -9,14 +9,16 @@ package model;
 public class m_kolam {
 
     private String id;
+    private m_ikan ikan;
     private m_tahap tahap;
     private String nama_kolam;
     private int volume_kolam;
     private int suhu;
     private int ph;
 
-    public m_kolam(String id, m_tahap tahap, String nama, int volume,int suhu,int ph) {
+    public m_kolam(String id, m_ikan ikan, m_tahap tahap , String nama, int volume,int suhu,int ph) {
         this.id = id;
+        this.ikan = ikan;
         this.tahap = tahap;
         this.nama_kolam = nama;
         this.volume_kolam = volume;
@@ -44,6 +46,14 @@ public class m_kolam {
         this.suhu = suhu;
     }
     
+     public m_ikan getIkan() {
+        return this.ikan;
+    }
+
+    public void setIkan(m_ikan ikan) {
+        this.ikan = ikan;
+    }
+    
     public m_tahap getTahap() {
         return this.tahap;
     }
@@ -51,6 +61,8 @@ public class m_kolam {
     public void setTahap(m_tahap tahap) {
         this.tahap = tahap;
     }
+    
+    
 
     public String getNamaKolam() {
         return nama_kolam;
